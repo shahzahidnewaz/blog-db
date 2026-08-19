@@ -1,0 +1,16 @@
+{
+  "name": "blogdb-project",
+  "version": "1.0.0",
+  "description": "Console-based Blog DB project (Node.js + MySQL)",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "seed-admin": "node utils/seedAdmin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "mysql2": "^3.11.0"
+  }
+}
