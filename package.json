@@ -1,7 +1,7 @@
 {
-  "name": "blogdb-project",
+  "name": "blogdb-project-sequelize",
   "version": "1.0.0",
-  "description": "Console-based Blog DB project (Node.js + MySQL)",
+  "description": "Console-based Blog DB project (Node.js + Sequelize + MySQL)",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
-    "mysql2": "^3.11.0"
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
   }
 }

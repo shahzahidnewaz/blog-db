@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { ask } = require("../utils/prompt");
-const userModel = require("../models/userModel");
+const { User } = require("../models/associations");
 
 async function register() {
   console.log("\n--- Register ---");
@@ -8,7 +8,7 @@ async function register() {
   const lastname = await ask("Last name: ");
   const email = await ask("Email: ");
 
-  const existing = await userModel.findByEmail(email);
+  const existing = await User.findOne({ where: { email } });
   if (existing) {
     console.log("An account with this email already exists.\n");
     return null;
@@ -17,9 +17,9 @@ async function register() {
   const password = await ask("Password: ");
   const hashed = await bcrypt.hash(password, 10);
 
-  const id = await userModel.createUser({ firstname, lastname, email, password: hashed });
-  console.log(`Registration successful! Your user ID is ${id}. Please log in.\n`);
-  return id;
+  const user = await User.create({ firstname, lastname, email, password: hashed });
+  console.log(`Registration successful! Your user ID is ${user.id}. Please log in.\n`);
+  return user.id;
 }
 
 async function login() {
@@ -27,7 +27,7 @@ async function login() {
   const email = await ask("Email: ");
   const password = await ask("Password: ");
 
-  const user = await userModel.findByEmail(email);
+  const user = await User.findOne({ where: { email } });
   if (!user) {
     console.log("No account found with that email.\n");
     return null;

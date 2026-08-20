@@ -1,4 +1,3 @@
--- Run this once to create the database, or let the app auto-create it (config/db.js does this too)
 CREATE DATABASE IF NOT EXISTS blogdb;
 USE blogdb;
 
@@ -24,6 +23,3 @@ CREATE TABLE IF NOT EXISTS blogs (
   updateAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
-
--- To promote a user to admin manually:
--- UPDATE users SET role = 'admin' WHERE email = 'someone@example.com';
