@@ -192,3 +192,6 @@ UPDATE users SET role = 'admin' WHERE email = 'someone@example.com';
 - Deleting a user cascades and deletes all of their blogs automatically (`ON DELETE CASCADE`).
 - All database queries use parameterized statements (`?` placeholders) to prevent SQL injection.
 - This is a console application — there is no web server or frontend involved.
+
+## Project Demonstration
+- [Demonstration](https://drive.google.com/file/d/1o8rpe936iS9Yc1V2g7ACmUgv4pSJXRPw/view?usp=sharing)
